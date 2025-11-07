@@ -21,8 +21,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * RootLayout 组件，用于定义整个应用的根布局结构
- * @param children - React 节点，作为布局的子内容
+ * @param children 
  */
 export default function RootLayout({
   children,
@@ -35,7 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Toaster />
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
