@@ -56,11 +56,11 @@ wasm-calculator/
 │   │
 │   ├── components/
 │   │   └── ui/         # shadcn/ui components (Button, Card, etc.)
-|            └── button.ts 
-|            └── card.ts
-|            └── input.ts
-|            └── sheet.ts        
-|            └── dialog.ts        
+|   |        └── button.ts 
+|   |         └── card.ts
+|   |         └── input.ts
+|   |         └── sheet.ts        
+|   |         └── dialog.ts        
 │   │
 │   └── types/
 │       └── key.ts          # Type definition for calculator keys
