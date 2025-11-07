@@ -49,21 +49,23 @@ wasm-calculator/
 ├── public/
 │   └── calc.wasm           # Compiled with wat2wasm (converted from Assembly .wat to .wasm)
 │
-├── src/
-│   ├── app/
-│   │   ├── page.tsx        # Main calculator page
-│   │   └── favicon.ico     # Application icon
-│   │
-│   ├── components/
-│   │   └── ui/         # shadcn/ui components (Button, Card, etc.)
-|   |        └── button.ts 
-|   |         └── card.ts
-|   |         └── input.ts
-|   |         └── sheet.ts        
-|   |         └── dialog.ts        
-│   │
-│   └── types/
-│       └── key.ts          # Type definition for calculator keys
+├
+│── app/
+│   ├── page.tsx        # Main calculator page
+│   |── favicon.ico     # Application icon
+│   
+│── components/
+│     └── ui/         # shadcn/ui components (Button, Card, etc.)
+|          └── button.ts 
+|          └── card.ts
+|          └── input.ts
+|          └── sheet.ts        
+|          └── dialog.ts        
+│
+│── libs/
+│      └── utils.ts          # Type definition for calculator keys
+│── types/
+│      └── key.ts          # Type definition for calculator keys
 │
 ├── package.json
 └── postcss.config.mjs
