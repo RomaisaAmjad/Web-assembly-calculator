@@ -5,15 +5,27 @@ It integrates **low-level WebAssembly (WASM)** functions (written in Assembly la
 
 ---
 
-## Features
+##  Features
 
--  **Basic Operations** — Addition, Subtraction, Multiplication, Division  
--  **Advanced Functions** — Power, Factorial, Increment, Decrement  
-- **WebAssembly Integration** — All core math functions run in WASM for performance  
--  **Modern UI** — Built with `shadcn/ui` + `Tailwind CSS`  
--  **History Panel** — View, delete, or clear previous calculations  
--  **Interactive Keypad** — Smooth transitions and hover effects  
--  **Error Handling** — Toast notifications for invalid inputs or failed operations  
+This WebAssembly calculator supports **integer arithmetic and scientific operations**, all written in **low-level Assembly (.wat)** and compiled to **`.wasm`**.
+
+###  Supported Operations
+
+| Category | Function | Description |
+|-----------|-----------|-------------|
+| **Basic Arithmetic** | `add(a, b)` | Adds two integers |
+|  | `sub(a, b)` | Subtracts two integers |
+|  | `mul(a, b)` | Multiplies two integers |
+|  | `div(a, b)` | Divides two integers (signed division) |
+|  | `mod(a, b)` | Returns the remainder of `a / b` |
+| **Increment / Decrement** | `inc(a)` | Increments a number by 1 |
+|  | `dec(a)` | Decrements a number by 1 |
+| **Advanced Math** | `factorial(n)` | Calculates factorial (`n!`) iteratively |
+|  | `square(a)` | Returns square of `a` (`a²`) |
+|  | `cube(a)` | Returns cube of `a` (`a³`) |
+|  | `sqrt(n)` | Approximates square root using Newton-Raphson method |
+|  | `power(a, b)` | Calculates exponential (`a^b`) |
+
 
 ---
 
@@ -26,58 +38,60 @@ It integrates **low-level WebAssembly (WASM)** functions (written in Assembly la
 | **UI Components** | [shadcn/ui](https://ui.shadcn.com/) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
 | **Notifications** | [Sonner](https://sonner.emilkowal.ski/) |
-| **WASM** | WebAssembly module (`calc.wasm`) for math logic |
+| **WASM** | WebAssembly module (`calc.wasm`) compiled from Assembly (.wat) |
 
 ---
-##  Project Structure
 
+##  Project Structure
+```bash
 wasm-calculator/
 │
 ├── public/
-│ └── calc.wasm # Compiled with wat2wasm (converted from Assembly .wat to .wasm)
+│   └── calc.wasm           # Compiled with wat2wasm (converted from Assembly .wat to .wasm)
 │
 ├── src/
-│ ├── app/
-│ │ ├── page.tsx # Main calculator page
-│ │ └── favicon.ico # Application icon
-│ │
-│ ├── components/
-│ │ └── ui/ # shadcn/ui components (Button, Card, etc.)
-│ │
-│ └── types/
-│ └── key.ts # Type definition for calculator keys
+│   ├── app/
+│   │   ├── page.tsx        # Main calculator page
+│   │   └── favicon.ico     # Application icon
+│   │
+│   ├── components/
+│   │   └── ui/         # shadcn/ui components (Button, Card, etc.)
+|            └── button.ts 
+|            └── card.ts
+|            └── input.ts
+|            └── sheet.ts        
+|            └── dialog.ts        
+│   │
+│   └── types/
+│       └── key.ts          # Type definition for calculator keys
 │
 ├── package.json
-└── tailwind.config.js
+└── postcss.config.mjs
 
+```
+
+---
 
 ##  Setup & Installation
 
-### 1 Clone the Repository
-git clone https://github.com/RomaisaAmjad/wasm-calculator.git
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/romaisaamjad/wasm-calculator.git
 cd wasm-calculator
 
-### 2 Install dependencies
+```
+### 2️⃣ Install Dependencies
+```bash
 npm install
-
-### 3 Run the development server
+```
+### 3️⃣ Run the Development Server
+```bash
 npm run dev
+```
 
-### How It Works
+Then open <a>http://localhost:3000</a> in your browser 
 
-The calculator UI is rendered using React components (Next.js App Router).
+## 👩‍💻 Author
 
-On page load, it fetches and instantiates the calc.wasm module.
-
-When a user clicks a button, the corresponding WASM function is called:
-
-Example: wasm.add(a, b) or wasm.factorial(a)
-
-The result is displayed in real-time, and stored in a local history list.
-
-### Author
-
-### Romaisa Amjad
-
-
+**Romaisa Amjad**  
 
