@@ -1,23 +1,23 @@
-# ⚙️ WASM Calculator
+#  WASM Calculator
 
 A modern **WebAssembly-powered calculator** built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.  
 It integrates **low-level WebAssembly (WASM)** functions (written in Assembly language) with a **beautiful React UI**, providing fast and accurate mathematical operations.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🧮 **Basic Operations** — Addition, Subtraction, Multiplication, Division  
-- 💡 **Advanced Functions** — Power, Factorial, Increment, Decrement  
-- ⚡ **WebAssembly Integration** — All core math functions run in WASM for performance  
-- 🧱 **Modern UI** — Built with `shadcn/ui` + `Tailwind CSS`  
-- 📜 **History Panel** — View, delete, or clear previous calculations  
-- 🖱️ **Interactive Keypad** — Smooth transitions and hover effects  
-- 💾 **Error Handling** — Toast notifications for invalid inputs or failed operations  
+-  **Basic Operations** — Addition, Subtraction, Multiplication, Division  
+-  **Advanced Functions** — Power, Factorial, Increment, Decrement  
+- **WebAssembly Integration** — All core math functions run in WASM for performance  
+-  **Modern UI** — Built with `shadcn/ui` + `Tailwind CSS`  
+-  **History Panel** — View, delete, or clear previous calculations  
+-  **Interactive Keypad** — Smooth transitions and hover effects  
+-  **Error Handling** — Toast notifications for invalid inputs or failed operations  
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Category | Tools Used |
 |:----------|:------------|
@@ -29,19 +29,21 @@ It integrates **low-level WebAssembly (WASM)** functions (written in Assembly la
 | **WASM** | WebAssembly module (`calc.wasm`) for math logic |
 
 ---
-
-## 🧩 Project Structure
+##  Project Structure
 
 wasm-calculator/
 │
 ├── public/
-│ └── calc.wasm # Compiled with wat2asm compiler converted to wasm
+│ └── calc.wasm # Compiled with wat2wasm (converted from Assembly .wat to .wasm)
 │
 ├── src/
 │ ├── app/
-│ │ └── page.tsx # Main calculator 
-│ │ └── favicon.ico # Application icon 
-│ ├── components/ui/ # shadcn components (Button, Card, etc.)
+│ │ ├── page.tsx # Main calculator page
+│ │ └── favicon.ico # Application icon
+│ │
+│ ├── components/
+│ │ └── ui/ # shadcn/ui components (Button, Card, etc.)
+│ │
 │ └── types/
 │ └── key.ts # Type definition for calculator keys
 │
@@ -49,7 +51,7 @@ wasm-calculator/
 └── tailwind.config.js
 
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 ### 1 Clone the Repository
 git clone https://github.com/RomaisaAmjad/wasm-calculator.git
