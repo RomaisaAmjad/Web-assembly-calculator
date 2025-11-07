@@ -1,41 +1,81 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚙️ WASM Calculator
 
-## Getting Started
+A modern **WebAssembly-powered calculator** built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.  
+It integrates **low-level WebAssembly (WASM)** functions (written in Assembly language) with a **beautiful React UI**, providing fast and accurate mathematical operations.
 
-First, run the development server:
+---
 
-```bash
+## 🚀 Features
+
+- 🧮 **Basic Operations** — Addition, Subtraction, Multiplication, Division  
+- 💡 **Advanced Functions** — Power, Factorial, Increment, Decrement  
+- ⚡ **WebAssembly Integration** — All core math functions run in WASM for performance  
+- 🧱 **Modern UI** — Built with `shadcn/ui` + `Tailwind CSS`  
+- 📜 **History Panel** — View, delete, or clear previous calculations  
+- 🖱️ **Interactive Keypad** — Smooth transitions and hover effects  
+- 💾 **Error Handling** — Toast notifications for invalid inputs or failed operations  
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools Used |
+|:----------|:------------|
+| **Framework** | [Next.js 14](https://nextjs.org/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Notifications** | [Sonner](https://sonner.emilkowal.ski/) |
+| **WASM** | WebAssembly module (`calc.wasm`) for math logic |
+
+---
+
+## 🧩 Project Structure
+
+wasm-calculator/
+│
+├── public/
+│ └── calc.wasm # Compiled with wat2asm compiler converted to wasm
+│
+├── src/
+│ ├── app/
+│ │ └── page.tsx # Main calculator 
+│ │ └── favicon.ico # Application icon 
+│ ├── components/ui/ # shadcn components (Button, Card, etc.)
+│ └── types/
+│ └── key.ts # Type definition for calculator keys
+│
+├── package.json
+└── tailwind.config.js
+
+
+## ⚙️ Setup & Installation
+
+### 1 Clone the Repository
+git clone https://github.com/RomaisaAmjad/wasm-calculator.git
+cd wasm-calculator
+
+### 2 Install dependencies
+npm install
+
+### 3 Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The calculator UI is rendered using React components (Next.js App Router).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+On page load, it fetches and instantiates the calc.wasm module.
 
-## Learn More
+When a user clicks a button, the corresponding WASM function is called:
 
-To learn more about Next.js, take a look at the following resources:
+Example: wasm.add(a, b) or wasm.factorial(a)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The result is displayed in real-time, and stored in a local history list.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Author
 
-## Deploy on Vercel
+### Romaisa Amjad
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Web-assembly-calculator
-This calculator is made with web assembly i.e. functions are written in assembly language and then compiled through web assembly and UI is given through web technologies.
->>>>>>> 6a8537e5e50c9fcfdf024454362041399e930ff2
+
