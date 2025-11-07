@@ -52,6 +52,8 @@ wasm-calculator/
 ├
 │── app/
 │   ├── page.tsx        # Main calculator page
+│   |── globals.css     
+│   ├── layout.tsx        # Main layout
 │   |── favicon.ico     # Application icon
 │   
 │── components/
