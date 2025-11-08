@@ -1,5 +1,5 @@
 (module
-  ;; --- Basic Arithmetic ---
+  ;; Arithmetic 
   (func $add (param $a i32) (param $b i32) (result i32)
     local.get $a
     local.get $b
@@ -20,13 +20,13 @@
     local.get $b
     i32.div_s)
 
-  ;; --- Modulus (remainder) ---
+  ;; Modulus
   (func $mod (param $a i32) (param $b i32) (result i32)
     local.get $a
     local.get $b
     i32.rem_s)
 
-  ;; --- Increment / Decrement ---
+  ;; Increment / Decrement 
   (func $inc (param $a i32) (result i32)
     local.get $a
     i32.const 1
@@ -37,7 +37,7 @@
     i32.const 1
     i32.sub)
 
-  ;; --- Factorial (iterative) ---
+  ;; Factorial
   (func $factorial (param $n i32) (result i32)
     (local $i i32)
     (local $res i32)
@@ -62,13 +62,13 @@
       end)
     local.get $res)
 
-  ;; --- Square (a²) ---
+  ;; Square (a²)
   (func $square (param $a i32) (result i32)
     local.get $a
     local.get $a
     i32.mul)
 
-  ;; --- Cube (a³) ---
+  ;; Cube (a³)
   (func $cube (param $a i32) (result i32)
     local.get $a
     local.get $a
@@ -76,7 +76,7 @@
     local.get $a
     i32.mul)
 
-  ;; --- Square Root (integer approximation using Newton-Raphson) ---
+  ;; Square Root
   (func $sqrt (param $n i32) (result i32)
     (local $x i32)
     (local $y i32)
@@ -101,7 +101,7 @@
       end)
     local.get $x)
 
-  ;; --- Exponential (a^b) ---
+  ;; Exponential (a^b)
   (func $power (param $a i32) (param $b i32) (result i32)
     (local $res i32)
     i32.const 1
@@ -123,7 +123,7 @@
       end)
     local.get $res)
 
-  ;; --- Export all functions ---
+  ;;  Export all functions
   (export "add" (func $add))
   (export "sub" (func $sub))
   (export "mul" (func $mul))
