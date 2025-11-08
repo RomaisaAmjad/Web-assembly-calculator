@@ -1,41 +1,101 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  WASM Calculator
 
-## Getting Started
+A modern **WebAssembly-powered calculator** built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.  
+It integrates **low-level WebAssembly (WASM)** functions (written in Assembly language) with a **beautiful React UI**, providing fast and accurate mathematical operations.
 
-First, run the development server:
+---
 
+##  Features
+
+This WebAssembly calculator supports **integer arithmetic and scientific operations**, all written in **low-level Assembly (.wat)** and compiled to **`.wasm`**.
+
+###  Supported Operations
+
+| Category | Function | Description |
+|-----------|-----------|-------------|
+| **Basic Arithmetic** | `add(a, b)` | Adds two integers |
+|  | `sub(a, b)` | Subtracts two integers |
+|  | `mul(a, b)` | Multiplies two integers |
+|  | `div(a, b)` | Divides two integers (signed division) |
+|  | `mod(a, b)` | Returns the remainder of `a / b` |
+| **Increment / Decrement** | `inc(a)` | Increments a number by 1 |
+|  | `dec(a)` | Decrements a number by 1 |
+| **Advanced Math** | `factorial(n)` | Calculates factorial (`n!`) iteratively |
+|  | `square(a)` | Returns square of `a` (`a²`) |
+|  | `cube(a)` | Returns cube of `a` (`a³`) |
+|  | `sqrt(n)` | Approximates square root using Newton-Raphson method |
+|  | `power(a, b)` | Calculates exponential (`a^b`) |
+
+
+---
+
+##  Tech Stack
+
+| Category | Tools Used |
+|:----------|:------------|
+| **Framework** | [Next.js 14](https://nextjs.org/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Notifications** | [Sonner](https://sonner.emilkowal.ski/) |
+| **WASM** | WebAssembly module (`calc.wasm`) compiled from Assembly (.wat) |
+
+---
+
+##  Project Structure
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+wasm-calculator/
+│
+├── public/
+│   └── calc.wasm           # Compiled with wat2wasm (converted from Assembly .wat to .wasm)
+│
+├
+│── app/
+│   ├── page.tsx        # Main calculator page
+│   |── globals.css     
+│   ├── layout.tsx        # Main layout
+│   |── favicon.ico     # Application icon
+│   
+│── components/
+│     └── ui/         # shadcn/ui components (Button, Card, etc.)
+|          └── button.ts 
+|          └── card.ts
+|          └── input.ts
+|          └── sheet.ts        
+|          └── dialog.ts        
+│
+│── libs/
+│      └── utils.ts          # Type definition for calculator keys
+│── types/
+│      └── key.ts          # Type definition for calculator keys
+│
+├── package.json
+└── postcss.config.mjs
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  Setup & Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/romaisaamjad/wasm-calculator.git
+cd wasm-calculator
 
-## Learn More
+```
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
+### 3️⃣ Run the Development Server
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then open <a>http://localhost:3000</a> in your browser 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👩‍💻 Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Romaisa Amjad**  
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Web-assembly-calculator
-This calculator is made with web assembly i.e. functions are written in assembly language and then compiled through web assembly and UI is given through web technologies.
->>>>>>> 6a8537e5e50c9fcfdf024454362041399e930ff2
