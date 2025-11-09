@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
+import validateOperation from "@/validators/operationValidator";
 import Key from "@/types/key";
 
 export default function Calculator() {
@@ -57,6 +58,12 @@ export default function Calculator() {
       action: "div",
       className:
         "bg-[#5C7360] hover:bg-[#495B4D] text-white hover:cursor-pointer",
+    },
+    {
+      label: "%",
+      action: "mod",
+      className:
+        "bg-[#4F8A9B] hover:bg-[#3E6E7C] text-white hover:cursor-pointer",
     },
     {
       label: "×",
@@ -129,63 +136,18 @@ export default function Calculator() {
       label: "eˣ",
       action: "exp",
       className:
-        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
+        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer col-span-2",
     },
-
     {
       label: "n!",
       action: "fact",
       className:
-        "col-span-4 bg-blue-700 hover:bg-blue-800 text-white hover:cursor-pointer",
+        "bg-blue-600 hover:bg-blue-700 text-white hover:cursor-pointer col-span-2",
     },
   ];
 
-  const validate = (op: string) => {
-    const two = ["add", "sub", "mul", "div", "pow"];
-    const one = ["inc", "dec", "fact", "sin", "cos", "tan", "exp"];
-
-    if (!wasmRef.current) {
-      toast.error("WASM not loaded");
-      return false;
-    }
-
-    if (two.includes(op)) {
-      if (a === "" || b === "") {
-        toast.error("Two values are required to perform this operation");
-        return false;
-      }
-      if (op === "div" && Number(b) === 0) {
-        toast.error("Cannot divide by zero");
-        return false;
-      }
-      return true;
-    }
-
-    if (one.includes(op)) {
-      if (a === "" && b === "") {
-        toast.error("Enter a value in the first field (A)");
-        return false;
-      }
-      if (b !== "" && a === "") {
-        toast.error("Single-input operations use field A only");
-        return false;
-      }
-      if (b !== "" && a !== "") {
-        toast.error("Single-input operations cannot use both fields");
-        return false;
-      }
-      if (op === "fact" && Number(a) < 0) {
-        toast.error("Invalid factorial input");
-        return false;
-      }
-      return true;
-    }
-
-    return true;
-  };
-
   const run = (op: string) => {
-    if (!validate(op)) return;
+    if (!validateOperation(op, !!wasmRef.current, a, b)) return;
 
     const wasm = wasmRef.current;
     const x = Number(a);
@@ -218,6 +180,9 @@ export default function Calculator() {
         case "pow":
           res = wasm.power(x, y);
           break;
+        case "mod":
+          res = wasm.mod(x, y);
+          break;
         case "sin":
           res = wasm.sin((x * Math.PI) / 180);
           break;
@@ -241,14 +206,13 @@ export default function Calculator() {
     if (["sin", "cos", "tan", "exp"].includes(op)) {
       res = Number(Number(res).toFixed(6));
     }
-
     setResult(res);
     setHistory((prev) => [...prev, { expr: `${op}(${a})`, value: res }]);
-    toast.success("Done!");
+    toast.success("Operation successful!");
     setTimeout(() => {
       setA("");
       setB("");
-    }, 250);
+    }, 400);
   };
 
   const handleKey = (key: Key) => {
@@ -328,19 +292,21 @@ export default function Calculator() {
         {showHistory && (
           <div className="mt-4 bg-white rounded-xl p-3 max-h-40 overflow-y-auto text-gray-800 border border-gray-300 shadow-inner">
             {history.length === 0 ? (
-              <p className="text-gray-400 text-center">No history yet.</p>
+              <p className="text-gray-400 text-center font-semibold">
+                No history yet
+              </p>
             ) : (
               history.map((h, i) => (
                 <div
                   key={i}
-                  className="flex justify-between items-center py-1 border-b border-gray-200"
+                  className=" font-semibold flex justify-between items-center py-1 border-b border-gray-200"
                 >
                   <span>
                     {h.expr} = {h.value}
                   </span>
                   <button
                     onClick={() => deleteEntry(i)}
-                    className="text-red-600 hover:text-red-700"
+                    className="text-red-600 hover:text-red-700 hover:cursor-pointer"
                   >
                     <Trash2 size={18} />
                   </button>
@@ -358,6 +324,11 @@ export default function Calculator() {
           </div>
         )}
       </Card>
+      
+      <footer className="mt-4 text-sm text-gray-400">
+        Developed by{" "}
+        <span className="text-indigo-200 font-medium">Romaisa Amjad</span> 
+      </footer>
     </div>
   );
 }
