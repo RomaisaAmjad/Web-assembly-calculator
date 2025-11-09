@@ -56,13 +56,13 @@ export default function Calculator() {
       label: "/",
       action: "div",
       className:
-        "bg-gray-700 hover:bg-gray-800 text-white hover:cursor-pointer",
+        "bg-[#5C7360] hover:bg-[#495B4D] text-white hover:cursor-pointer",
     },
     {
       label: "×",
       action: "mul",
       className:
-        "bg-gray-700 hover:bg-gray-800 text-white hover:cursor-pointer",
+        "bg-[#DFA100] hover:bg-[#B78100] text-white hover:cursor-pointer",
     },
 
     ...["7", "8", "9"].map((n) => ({ label: n, type: "num" as const })),
@@ -70,7 +70,7 @@ export default function Calculator() {
       label: "−",
       action: "sub",
       className:
-        "bg-gray-700 hover:bg-gray-800 text-white hover:cursor-pointer",
+        "bg-[#5B2E34] hover:bg-[#4A242A] text-white hover:cursor-pointer",
     },
 
     ...["4", "5", "6"].map((n) => ({ label: n, type: "num" as const })),
@@ -78,7 +78,7 @@ export default function Calculator() {
       label: "+",
       action: "add",
       className:
-        "bg-gray-700 hover:bg-gray-800 text-white hover:cursor-pointer",
+        "bg-[#905A64] hover:bg-[#764950]  text-white hover:cursor-pointer",
     },
 
     ...["1", "2", "3"].map((n) => ({ label: n, type: "num" as const })),
@@ -111,25 +111,25 @@ export default function Calculator() {
       label: "sin",
       action: "sin",
       className:
-        "bg-[#723D46] hover:bg-[#5D3141] text-white hover:cursor-pointer",
+        "bg-[#3A6D7C] hover:bg-[#2E5662]  text-white hover:cursor-pointer",
     },
     {
       label: "cos",
       action: "cos",
       className:
-        "bg-[#723D46] hover:bg-[#5D3141] text-white hover:cursor-pointer",
+        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
     },
     {
       label: "tan",
       action: "tan",
       className:
-        "bg-[#723D46] hover:bg-[#5D3141] text-white hover:cursor-pointer",
+        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
     },
     {
       label: "eˣ",
       action: "exp",
       className:
-        "bg-[#723D46] hover:bg-[#5D3141] text-white hover:cursor-pointer",
+        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
     },
 
     {
@@ -350,7 +350,7 @@ export default function Calculator() {
             {history.length > 0 && (
               <Button
                 onClick={clearHistory}
-                className="w-full mt-2 bg-red-600 hover:bg-red-700 text-white rounded-lg"
+                className="w-full mt-2 bg-red-600 hover:bg-red-700 text-white rounded-lg hover:cursor-pointer"
               >
                 Clear All
               </Button>
