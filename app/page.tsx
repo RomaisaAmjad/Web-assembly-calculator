@@ -272,15 +272,15 @@ export default function Calculator() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6">
       <Card className="w-full max-w-lg rounded-md shadow-xl p-6 bg-white border border-gray-300">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        <h1 className="text-2xl font-bold  text-center text-gray-800">
           WASM Calculator
         </h1>
 
-        <div className="bg-gray-100 text-right text-gray-800 rounded-md py-3 px-4 mb-4 text-2xl min-h-[48px] shadow-inner border border-gray-300">
+        <div className="bg-gray-100 text-right text-gray-800 rounded-md py-3 px-4 mb-2 text-2xl min-h-[48px] shadow-inner border border-gray-300">
           {result || 0}
         </div>
 
-        <div className="flex gap-3 mb-4">
+        <div className="flex gap-3 mb-2">
           {["a", "b"].map((input) => (
             <input
               key={input}
@@ -315,11 +315,11 @@ export default function Calculator() {
           ))}
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-2 text-center">
           <Button
             variant="outline"
             onClick={() => setShowHistory(!showHistory)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold rounded-md border border-gray-400 hover:cursor-pointer"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold rounded-sm border border-gray-400 hover:cursor-pointer"
           >
             {showHistory ? "Hide History" : "Show History"}
           </Button>
