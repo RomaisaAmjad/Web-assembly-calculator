@@ -319,7 +319,7 @@ export default function Calculator() {
           <Button
             variant="outline"
             onClick={() => setShowHistory(!showHistory)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold rounded-md border border-gray-400"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold rounded-md border border-gray-400 hover:cursor-pointer"
           >
             {showHistory ? "Hide History" : "Show History"}
           </Button>
