@@ -305,6 +305,7 @@ export default function Calculator() {
                     {h.expr} = {h.value}
                   </span>
                   <button
+                    aria-label="Delete"
                     onClick={() => deleteEntry(i)}
                     className="text-red-600 hover:text-red-700 hover:cursor-pointer"
                   >
@@ -324,10 +325,10 @@ export default function Calculator() {
           </div>
         )}
       </Card>
-      
+
       <footer className="mt-4 text-sm text-gray-400">
         Developed by{" "}
-        <span className="text-indigo-200 font-medium">Romaisa Amjad</span> 
+        <span className="text-indigo-200 font-medium">Romaisa Amjad</span>
       </footer>
     </div>
   );

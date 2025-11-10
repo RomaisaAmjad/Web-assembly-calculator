@@ -1,5 +1,4 @@
 (module
-  ;; --- Arithmetic (integer) ---
   (func $add (param $a i32) (param $b i32) (result i32)
     local.get $a
     local.get $b
@@ -25,7 +24,6 @@
     local.get $b
     i32.rem_s)
 
-  ;; --- Increment / Decrement ---
   (func $inc (param $a i32) (result i32)
     local.get $a
     i32.const 1
@@ -36,7 +34,6 @@
     i32.const 1
     i32.sub)
 
-  ;; --- Factorial ---
   (func $factorial (param $n i32) (result i32)
     (local $i i32)
     (local $res i32)
@@ -61,7 +58,6 @@
       end)
     local.get $res)
 
-  ;; --- Power ---
   (func $power (param $a i32) (param $b i32) (result i32)
     (local $res i32)
     i32.const 1
@@ -83,7 +79,6 @@
       end)
     local.get $res)
 
-  ;; --- Exports ---
   (export "add" (func $add))
   (export "sub" (func $sub))
   (export "mul" (func $mul))
