@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Trash2 } from "lucide-react";
+import { Trash2, Github } from "lucide-react";
 import validateOperation from "@/validators/operationValidator";
 import Key from "@/types/key";
 
@@ -45,104 +45,102 @@ export default function Calculator() {
     {
       label: "AC",
       action: "clear",
-      className:
-        "bg-gray-400 hover:bg-gray-500 text-white hover:cursor-pointer",
+      className: "bg-[#E63946] hover:bg-[#B81D29] text-white",
     },
     {
       label: "DEL",
       action: "del",
-      className: "bg-red-600 hover:bg-red-700 text-white hover:cursor-pointer",
+      className: "bg-[#D7263D] hover:bg-[#A41B2C] text-white",
     },
     {
       label: "/",
       action: "div",
-      className:
-        "bg-[#5C7360] hover:bg-[#495B4D] text-white hover:cursor-pointer",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white",
     },
     {
       label: "%",
       action: "mod",
-      className:
-        "bg-[#4F8A9B] hover:bg-[#3E6E7C] text-white hover:cursor-pointer",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white",
     },
     {
       label: "×",
       action: "mul",
-      className:
-        "bg-[#DFA100] hover:bg-[#B78100] text-white hover:cursor-pointer",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white",
     },
 
-    ...["7", "8", "9"].map((n) => ({ label: n, type: "num" as const })),
+    ...["7", "8", "9"].map((n) => ({
+      label: n,
+      type: "num" as const,
+      className: "bg-[#2C3440] hover:bg-[#3A4452] text-white",
+    })),
     {
       label: "−",
       action: "sub",
-      className:
-        "bg-[#5B2E34] hover:bg-[#4A242A] text-white hover:cursor-pointer",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white",
     },
 
-    ...["4", "5", "6"].map((n) => ({ label: n, type: "num" as const })),
+    ...["4", "5", "6"].map((n) => ({
+      label: n,
+      type: "num" as const,
+      className: "bg-[#2C3440] hover:bg-[#3A4452] text-white",
+    })),
     {
       label: "+",
       action: "add",
-      className:
-        "bg-[#905A64] hover:bg-[#764950]  text-white hover:cursor-pointer",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white",
     },
 
-    ...["1", "2", "3"].map((n) => ({ label: n, type: "num" as const })),
+    ...["1", "2", "3"].map((n) => ({
+      label: n,
+      type: "num" as const,
+      className: "bg-[#2C3440] hover:bg-[#3A4452] text-white",
+    })),
     {
       label: "^",
       action: "pow",
-      className:
-        "bg-blue-600 hover:bg-blue-700 text-white hover:cursor-pointer",
+      className: "bg-[#5C6BC0] hover:bg-[#4B56A6] text-white",
     },
 
     {
       label: "0",
       type: "num",
-      className: "col-span-2 bg-gray-600 hover:bg-gray-700 text-white",
+      className: "col-span-2 bg-[#2C3440] hover:bg-[#3A4452] text-white",
     },
     {
       label: "++",
       action: "inc",
-      className:
-        "bg-green-600 hover:bg-green-700 text-white hover:cursor-pointer",
+      className: "bg-[#00C8A0] hover:bg-[#00A585] text-white",
     },
     {
       label: "--",
       action: "dec",
-      className:
-        "bg-yellow-600 hover:bg-yellow-700 text-white hover:cursor-pointer",
+      className: "bg-[#00C8A0] hover:bg-[#00A585] text-white",
     },
 
     {
       label: "sin",
       action: "sin",
-      className:
-        "bg-[#3A6D7C] hover:bg-[#2E5662]  text-white hover:cursor-pointer",
+      className: "bg-[#5C6BC0] hover:bg-[#4B56A6] text-white",
     },
     {
       label: "cos",
       action: "cos",
-      className:
-        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
+      className: "bg-[#5C6BC0] hover:bg-[#4B56A6] text-white",
     },
     {
       label: "tan",
       action: "tan",
-      className:
-        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer",
+      className: "bg-[#5C6BC0] hover:bg-[#4B56A6] text-white",
     },
     {
       label: "eˣ",
       action: "exp",
-      className:
-        "bg-[#3A6D7C] hover:bg-[#2E5662] text-white hover:cursor-pointer col-span-2",
+      className: "bg-[#5C6BC0] hover:bg-[#4B56A6] text-white col-span-2",
     },
     {
       label: "n!",
       action: "fact",
-      className:
-        "bg-blue-600 hover:bg-blue-700 text-white hover:cursor-pointer col-span-2",
+      className: "bg-[#007ACC] hover:bg-[#0064A8] text-white col-span-2",
     },
   ];
 
@@ -234,17 +232,15 @@ export default function Calculator() {
     setHistory((prev) => prev.filter((_, idx) => idx !== i));
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6">
-      <Card className="w-full max-w-lg rounded-md shadow-xl p-6 bg-white border border-gray-300">
-        <h1 className="text-2xl font-bold  text-center text-gray-800">
-          WASM Calculator
-        </h1>
-
-        <div className="bg-gray-100 text-right text-gray-800 rounded-md py-3 px-4 mb-2 text-2xl min-h-[48px] shadow-inner border border-gray-300">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B0C10] p-6">
+      <Card className="w-full max-w-lg rounded-2xl shadow-2xl p-6 bg-[#1F2833] border border-[#2E3A47] transition-transform hover:scale-[1.01] duration-300">
+        {/* Display */}
+        <div className="bg-[#14181F] text-right text-[#EAEAEA] rounded-lg py-4 px-5 mb-5 text-2xl min-h-[48px] shadow-inner border border-[#2E3A47]">
           {result || 0}
         </div>
 
-        <div className="flex gap-3 mb-2">
+        {/* Inputs */}
+        <div className="flex gap-3 mb-5">
           {["a", "b"].map((input) => (
             <input
               key={input}
@@ -254,24 +250,25 @@ export default function Calculator() {
                 input === "a" ? setA(e.target.value) : setB(e.target.value)
               }
               onFocus={() => setActiveInput(input as "a" | "b")}
-              className={`w-full p-2 rounded-md bg-gray-100 text-black text-center focus:ring-2 ${
+              className={`w-full p-3 rounded-md bg-[#14181F] text-[#EAEAEA] text-center placeholder-gray-500 focus:ring-2 focus:outline-none ${
                 activeInput === input
-                  ? "focus:ring-gray-900"
-                  : "focus:ring-gray-700"
+                  ? "focus:ring-[#00C8A0]"
+                  : "focus:ring-[#2E3A47]"
               }`}
               placeholder={`Enter ${input.toUpperCase()}`}
             />
           ))}
         </div>
 
+        {/* Keypad */}
         <div className="grid grid-cols-4 gap-3">
           {keypad.map((key, i) => (
             <button
               key={i}
               onClick={() => handleKey(key)}
-              className={`rounded-sm p-4 font-semibold transition text-white shadow-md ${
+              className={`rounded-lg p-4 font-semibold transition-all duration-200 text-[#EAEAEA] shadow-sm active:scale-95 hover: cursor-pointer ${
                 key.className ??
-                "bg-gray-700 hover:bg-gray-800 hover:cursor-pointer"
+                "bg-[#2C3440] hover:bg-[#3A4452] hover:cursor-pointer"
               }`}
             >
               {key.label}
@@ -279,27 +276,29 @@ export default function Calculator() {
           ))}
         </div>
 
-        <div className="mt-2 text-center">
+        {/* History Button */}
+        <div className=" text-center">
           <Button
             variant="outline"
             onClick={() => setShowHistory(!showHistory)}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold rounded-sm border border-gray-400 hover:cursor-pointer"
+            className="bg-[#14181F] hover:bg-[#2C3440] text-[#00C8A0] font-semibold rounded-lg border border-[#00C8A0]/40 transition-all duration-200 hover:cursor-pointer"
           >
             {showHistory ? "Hide History" : "Show History"}
           </Button>
         </div>
 
+        {/* History Section */}
         {showHistory && (
-          <div className="mt-4 bg-white rounded-xl p-3 max-h-40 overflow-y-auto text-gray-800 border border-gray-300 shadow-inner">
+          <div className="mt-5 bg-[#14181F] rounded-xl p-4 max-h-48 overflow-y-auto text-gray-300 border border-[#2E3A47] shadow-inner">
             {history.length === 0 ? (
-              <p className="text-gray-400 text-center font-semibold">
+              <p className="text-gray-500 text-center font-semibold">
                 No history yet
               </p>
             ) : (
               history.map((h, i) => (
                 <div
                   key={i}
-                  className=" font-semibold flex justify-between items-center py-1 border-b border-gray-200"
+                  className="font-semibold flex justify-between items-center py-2 border-b border-[#2E3A47]"
                 >
                   <span>
                     {h.expr} = {h.value}
@@ -307,7 +306,7 @@ export default function Calculator() {
                   <button
                     aria-label="Delete"
                     onClick={() => deleteEntry(i)}
-                    className="text-red-600 hover:text-red-700 hover:cursor-pointer"
+                    className="text-[#E63946] hover:text-[#e94242] transition-colors hover:cursor-pointer"
                   >
                     <Trash2 size={18} />
                   </button>
@@ -317,7 +316,7 @@ export default function Calculator() {
             {history.length > 0 && (
               <Button
                 onClick={clearHistory}
-                className="w-full mt-2 bg-red-600 hover:bg-red-700 text-white rounded-lg hover:cursor-pointer"
+                className="w-full mt-3 bg-[#f54756] hover:bg-[#f63333] text-white font-semibold rounded-md transition-all duration-200 hover:cursor-pointer"
               >
                 Clear All
               </Button>
@@ -326,9 +325,19 @@ export default function Calculator() {
         )}
       </Card>
 
-      <footer className="mt-4 text-sm text-gray-400">
-        Developed by{" "}
-        <span className="text-indigo-200 font-medium">Romaisa Amjad</span>
+      <footer className="mt-6 flex flex-col items-center gap-2 text-sm text-gray-400">
+        <span>
+          Made by{" "}
+          <span className="text-[#00FFC6] font-medium">Romaisa Amjad</span>
+        </span>
+        <a
+          href="https://github.com/RomaisaAmjad/Web-assembly-calculator"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-[#00B8FF] hover:text-[#00FFC6] font-semibold transition-colors"
+        >
+          <Github size={18} /> Github Link
+        </a>
       </footer>
     </div>
   );
