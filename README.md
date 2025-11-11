@@ -1,7 +1,7 @@
 #  WASM Calculator
 
 A modern **WebAssembly-powered calculator** built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.  
-It integrates **low-level WebAssembly (WASM)** functions (written in Assembly language) with a **beautiful React UI**, providing fast and accurate mathematical operations.
+It integrates **low-level WebAssembly (WASM)** functions (written in Assembly language) with a **React UI**, providing fast and accurate mathematical operations.
 
 ---
 
