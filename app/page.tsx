@@ -153,7 +153,7 @@ export default function Calculator() {
         div: () => wasm.div(x, y),
         inc: () => (wasm.inc ? wasm.inc(x) : x + 1),
         dec: () => (wasm.dec ? wasm.dec(x) : x - 1),
-        mod: () => (wasm.mod ? wasm.mod(x, y) : ((x % y) + y) % y),
+        mod: () => x - Math.floor(x / y) * y,
         pow: () => (wasm.power ? wasm.power(x, y) : Math.pow(x, y)),
 
         sin: () => wasm.sin((x * Math.PI) / 180),
