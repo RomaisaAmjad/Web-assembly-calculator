@@ -1,22 +1,36 @@
 import { toast } from "sonner";
 
+export const twoOperandOps = ["add", "sub", "mul", "div", "pow", "mod"];
+
+export const oneOperandOps = [
+  "inc",
+  "dec",
+  "fact",
+  "sin",
+  "cos",
+  "tan",
+  "exp",
+  "log",
+  "taninv",
+  "sininv",
+  "cosinv",
+  "pow"
+];
+
  function validateOperation(
   op: string,
   wasmLoaded: boolean,
   a: string,
   b: string
 ): boolean {
-  const twoOperandOps = ["add", "sub", "mul", "div", "pow", "mod"];
-  const oneOperandOps = ["inc", "dec", "fact", "sin", "cos", "tan", "exp"];
 
   if (!wasmLoaded) {
-    toast.error("WASM not loaded");
-    return false;
+    console.warn("WASM not loaded");
   }
 
   if (twoOperandOps.includes(op)) {
-    if (a === "" || b === "") {
-      toast.error("Two values are required to perform this operation");
+    if (!a || !b) {
+      toast.error("Two values are required for this operation");
       return false;
     }
     if (op === "div" && Number(b) === 0) {
@@ -27,20 +41,20 @@ import { toast } from "sonner";
   }
 
   if (oneOperandOps.includes(op)) {
-    if (a === "" && b === "") {
-      toast.error("Enter a value in the first field (A)");
+    if (!a && !b) {
+      toast.error("Enter a value in field A");
       return false;
     }
     if (b !== "" && a === "") {
-      toast.error("Single-input operations use field A only");
+      toast.error("Single-operand operations use field A only");
       return false;
     }
     if (b !== "" && a !== "") {
-      toast.error("Single-input operations cannot use both fields");
+      toast.error("Single-operand operations cannot use both fields");
       return false;
     }
     if (op === "fact" && Number(a) < 0) {
-      toast.error("Invalid factorial input");
+      toast.error("Factorial cannot be negative");
       return false;
     }
     return true;
