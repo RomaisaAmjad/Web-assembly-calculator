@@ -80,8 +80,8 @@ wasm-calculator/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/romaisaamjad/wasm-calculator.git
-cd wasm-calculator
+git clone https://github.com/RomaisaAmjad/Web-assembly-calculator
+cd Web-assembly-calculator
 
 ```
 ### 2️⃣ Install Dependencies
